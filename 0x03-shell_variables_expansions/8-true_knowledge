@@ -1,0 +1,2 @@
+#!/bin/bash
+eport TRUEKNOWLEDGE=1209 | echo $(($TRUEKNOWLEDEGE + 128))
