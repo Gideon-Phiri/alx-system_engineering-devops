@@ -34,20 +34,20 @@ defaults
   timeout server 15s
   timeout http-request 10s
 
-frontend clickviral-tech-frontend
+frontend MeltahAi-frontend
     bind *:80
-    default_backend clickviral-tech-backend
+    default_backend MeltahAi-backend
 
-backend clickviral-tech-backend
+backend MeltahAi-backend
     balance roundrobin
     server 319927-web-01 54.160.81.253:80 check
     server 319927-web-02 52.86.247.86:80 check
 "
 
-# shellcheck disable=SC2154
+shellcheck disable=SC2154
 echo "$server_config" | sudo dd status=none of=/etc/haproxy/haproxy.cfg
 
-# enable haproxy to be started by init script
+enable haproxy to be started by init script
 echo "ENABLED=1" | sudo dd status=none of=/etc/default/haproxy
 
 echo "configured - Roundrobin On web-01 & web-02"
