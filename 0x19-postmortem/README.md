@@ -1,39 +1,40 @@
-## Money Da Vinci Web App Outage Postmortem (April 13, 2024)
+![Database Hero Image](https://drive.google.com/file/d/1IEJrjxCuvs9SZq-O31PTjix2JwFxTdQ5/view?usp=drive_link)  ```
+## Money Da Vinci Web App Outage Postmortem (April 13, 2024) 
 
-**## Issue Summary**
+## Issue Summary 
 
-* **Duration:** 1 hour and 15 minutes (14:15 CAT - 15:30 CAT)
-* **Impact:** Slow loading times, error messages for 30% of users accessing accounts and financial data.
+On Saturday, April 13th, 2024, a portion of Money Da Vinci web app users experienced slow loading times and error messages for approximately 1 hour and 15 minutes (14:15 CAT - 15:30 CAT). This postmortem outlines the root cause of the outage ️‍♀️, the corrective actions taken ️, and preventative measures implemented to minimize the risk of similar incidents in the future ️.
 
-**## Timeline**
+## Timeline 
 
-* **14:15 CAT:** User reports of slow loading times and errors.
-* **14:20 CAT:** Monitoring alerts indicate increased API response times.
-* **14:20 - 14:45 CAT:** Initial investigation suspects user traffic surge, unsuccessful server scaling attempts.
-* **14:45 CAT:** Database connection issue identified.
-* **14:45 - 15:15 CAT:** Database service restart, temporary cache layer implementation.
-* **15:15 CAT:** Performance recovery, user reports subside.
-* **15:30 CAT:** Web app fully functional.
+* **14:15 CAT:** User reports of slow loading times and error messages begin ⚠️.
+* **14:20 CAT:** Monitoring alerts indicate increased API response times .
+* **14:20 - 14:45 CAT:** Initial investigation suspects user traffic surge. Scaling attempts are unsuccessful ➡️➡️.
+* **14:45 CAT:** Database connection issue identified ❌.
+* **14:45 - 15:15 CAT:** Database service restart and temporary cache layer implementation .
+* **15:15 CAT:** Performance recovery, user reports subside .
+* **15:30 CAT:** Web app fully functional ✅.
 
-**## Root Cause and Resolution**
+## Root Cause and Resolution 🩺
 
-* **Root Cause:** Malfunctioning database connection pool overload.
-* **Resolution:** Database service restart, temporary cache layer.
+The root cause of the outage was a malfunctioning database connection pool. The pool, responsible for managing connections between the web app and the database, became overloaded and couldn't allocate new connections promptly. This bottleneck caused slow response times and errors for users .
 
-**## Corrective and Preventative Measures**
+The issue was resolved by restarting the database service, which cleared the connection pool and allowed it to function normally. Additionally, a temporary cache layer was implemented to reduce the number of database calls required for certain functionalities, further alleviating the load  ️➡️.
+
+## Corrective and Preventative Measures 
 
 * **Database Connection Pool Management:**
-    * Review and adjust pool configuration for handling higher loads.
-    * Implement connection pool monitoring for proactive identification of issues.
+    * Review and adjust connection pool configuration to handle higher loads .
+    * Implement connection pool monitoring for proactive identification of potential issues .
 * **Redundancy:**
-    * Implement primary-secondary database replication or leverage cloud-based redundancy features.
+    * Implement primary-secondary database replication or leverage cloud-based redundancy features for high availability  .
 * **Enhanced Monitoring:**
-    * Include database connection pool metrics and health checks in monitoring.
+    * Include database connection pool metrics and health checks in monitoring for early warnings 🩺. 
 * **Automated Scaling:**
-    * Explore automated scaling for web app and database to handle traffic fluctuations.
+    * Explore automated scaling for the web app and database to handle traffic fluctuations more efficiently .
 * **Regular Code Reviews and Testing:**
-    * Integrate code reviews and performance testing to identify and address potential bottlenecks.
+    * Integrate code reviews and performance testing into the development process to identify and address potential bottlenecks before they cause outages .
 
-**## Conclusion**
+## Conclusion 
 
-This postmortem aims to prevent similar outages. Implementing the corrective and preventative measures will ensure a more robust and reliable Money Da Vinci web app.
+This postmortem serves as a valuable learning experience. By implementing the corrective and preventative measures outlined above, we are committed to ensuring a more robust and reliable Money Da Vinci web app for our users. We appreciate your understanding and continued trust .
