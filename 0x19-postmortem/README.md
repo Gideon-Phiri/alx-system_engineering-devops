@@ -1,4 +1,4 @@
-![Database Hero Image](./scr/dbhero.png)  ```
+![Database Hero Image](./scr/dbhero.png)
 ## Money Da Vinci Web App Outage Postmortem (April 13, 2024) 
 
 ## Issue Summary 
