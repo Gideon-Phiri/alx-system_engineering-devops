@@ -1,6 +1,6 @@
 ## Money Da Vinci Web App Outage Postmortem (April 13, 2024)
 
-**## Issue Summary**
+**# Issue Summary**
 
 * **Duration:** 1 hour and 15 minutes (14:15 CAT - 15:30 CAT)
 * **Impact:** Slow loading times, error messages for 30% of users accessing accounts and financial data.
